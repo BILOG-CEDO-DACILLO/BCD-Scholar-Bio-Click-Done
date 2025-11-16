@@ -1,0 +1,23 @@
+<RCC>
+  <qresource prefix="images">
+    <file>view.png</file>
+    <file>hide.png</file>
+    <file>padlock.png</file>
+    <file>mail.png</file>
+    <file>user.png</file>
+    <file>exit.png</file>
+    <file>bg.png</file>
+  </qresource>
+  <qresource prefix="fonts">
+    <file>InclusiveSans-Bold.ttf</file>
+    <file>InclusiveSans-BoldItalic.ttf</file>
+    <file>InclusiveSans-Italic.ttf</file>
+    <file>InclusiveSans-Light.ttf</file>
+    <file>InclusiveSans-LightItalic.ttf</file>
+    <file>InclusiveSans-Medium.ttf</file>
+    <file>InclusiveSans-MediumItalic.ttf</file>
+    <file>InclusiveSans-Regular.ttf</file>
+    <file>InclusiveSans-SemiBold.ttf</file>
+    <file>InclusiveSans-SemiBoldItalic.ttf</file>
+  </qresource>
+</RCC>
