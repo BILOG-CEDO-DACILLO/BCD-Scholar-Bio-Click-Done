@@ -2,9 +2,92 @@ import sys
 from pathlib import Path
 from PyQt5 import QtWidgets, uic,QtCore
 from PyQt5.QtCore import QObject, QEvent, Qt
-from PyQt5.QtGui import QFont, QFontDatabase, QColor
-from PyQt5.QtWidgets import QGraphicsDropShadowEffect, QLineEdit, QPushButton, QComboBox
+from PyQt5.QtGui import QFont, QFontDatabase, QColor, QRegion, QPixmap
+from PyQt5.QtWidgets import (QLabel, QGraphicsDropShadowEffect, QLineEdit, QPushButton, QComboBox, QGraphicsOpacityEffect)
 
+from PyQt5.QtWidgets import QLabel, QFileDialog
+from PyQt5.QtGui import QPixmap, QRegion
+from PyQt5.QtCore import Qt, QSize
+from PyQt5.QtWidgets import QWidget  # Needed for QFileDialog context
+
+
+class setup_profile(QLabel):
+
+    def __init__(self, target_label: QLabel, default_path: str):
+
+        self.label = target_label
+        self.default_path = default_path
+        self._current_path = self.default_path
+
+        self._set_profile_photo_internal(self.default_path)
+
+        self.setup_click_handler()
+
+    def setup_click_handler(self):
+        self.label.setCursor(Qt.PointingHandCursor)
+        self.label.mousePressEvent = lambda event: self.change_profile_photo()
+
+    def change_profile_photo(self):
+
+        print("DEBUG: Profile change method triggered.")
+
+        try:
+            parent_widget = self.label.parentWidget()
+
+            file_dialog = QFileDialog(parent_widget)
+            file_path, _ = file_dialog.getOpenFileName(
+                parent_widget,
+                "Select New Profile Picture",
+                "",
+                "Image Files (*.png *.jpg *.jpeg *.webp)"
+            )
+            if file_path:
+                self._set_profile_photo_internal(file_path)
+                self._current_path = file_path
+        except Exception as e:
+            print(f"ERROR: Failed to open file dialog or load image: {e}")
+
+    @property
+    def current_path(self):
+        return self._current_path
+
+    def _set_profile_photo_internal(self, image_path: str):
+
+        pixmap = QPixmap(image_path)
+
+        if pixmap.isNull():
+            print("Error: Invalid image or file path.")
+            return
+
+        size = self.label.width()
+        label_size = self.label.size()
+        radius = size // 2
+
+        if size == 0:
+            size = self.label.geometry().width()
+            label_size = self.label.geometry().size()
+            radius = size // 2
+
+            if size == 0:
+                print("Warning: Profile photo size is zero. Make sure it's sized correctly in Qt Designer.")
+                return
+
+        scaled_pixmap = pixmap.scaled(label_size,
+                                      Qt.KeepAspectRatioByExpanding,
+                                      Qt.SmoothTransformation)
+
+        self.label.setPixmap(scaled_pixmap)
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.label.setStyleSheet(f"""
+            QLabel#{self.label.objectName()} {{
+                border-radius: {radius}px;
+                border: 3px solid transparent; 
+                background-color: transparent;
+            }}
+        """)
+
+        self.label.setMask(QRegion(0, 0, size, size, QRegion.Ellipse))
 
 class setupComboBox:
     def __init__(self, combobox: QComboBox, item_list: list, placeholder: str):
@@ -19,9 +102,6 @@ class setupComboBox:
         if self.combobox.currentIndex() == 0:
             return None
         return self.combobox.currentText()
-
-
-
 
 class MyWindow(QtWidgets.QDialog):
     def __init__(self):
@@ -112,3 +192,8 @@ def load_font(font_path, size=12, bold=False):
     else:
         font.setWeight(QFont.Weight.Normal)
     return font
+
+def opac(self, label, opacity_value):
+    opacity_effect = QGraphicsOpacityEffect()
+    opacity_effect.setOpacity(opacity_value)
+    label.setGraphicsEffect(opacity_effect)

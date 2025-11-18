@@ -11,14 +11,14 @@ from app.utils.util import (MyWindow, HoverShadow, load_font)
 
 # ---------------- Main Dialog ----------------
 class LogandSign(MyWindow):
-    def __init__(self):
+    def __init__(self, app_manager=None):
         super().__init__()
+        self.app_manager = app_manager
         self.setup_paths_and_icons()
         self.setup_ui()
         self.setup_fonts()
         self.setup_shadows()
         self.setup_connections()
-
 
         #-------------------------------------------- This setups the paths ----------------
     def setup_paths_and_icons(self):
@@ -31,7 +31,6 @@ class LogandSign(MyWindow):
             'isb_font': self.project_root / 'assets' / 'InclusiveSans-Bold.ttf',
             'isr_font': self.project_root / 'assets' / 'InclusiveSans-Regular.ttf'
         }
-
         for key, path in asset_paths.items():
             if not path.exists():
                 raise FileNotFoundError(f"Required file not found: {path}")
@@ -101,7 +100,6 @@ class LogandSign(MyWindow):
         anim.setEasingCurve(QtCore.QEasingCurve.OutQuint)
         anim.start()
         return anim
-
     def switchtologin(self):
         if self.loginswitch.text() == "Login":
             self.loginswitch.setText("Sign Up")
@@ -111,6 +109,7 @@ class LogandSign(MyWindow):
             self.usernamefield.setText("")
             self.emailfield.setText("")
             self.passwordfield.setText("")
+            self.passwordfield_2.setText("")
         else:
             self.loginswitch.setText("Login")
             self.anim = self.animate_widget(self.switchwidget, QPoint(560, 0))
@@ -138,6 +137,7 @@ class LogandSign(MyWindow):
         email = self.emailfield.text().strip()
         password = self.passwordfield.text()
         password2 = self.passwordfield_2.text()
+        status = "NON-SCHOLAR"
         address = "@bcd.scholarship.edu.ph"
 
         if not username or not email or not password or not password2:
@@ -147,8 +147,8 @@ class LogandSign(MyWindow):
             QMessageBox.warning(self, "Warning", "Passwords don't match, Try again!", QMessageBox.Ok)
             return
 
-        elif address not in email:
-            QMessageBox.warning(self, "Warning", "Please use the given address.", QMessageBox.Ok)
+        elif not email.endswith("@bcd.scholarship.edu.ph"):
+            QMessageBox.warning(self, "Warning", "Please use the given domain address.", QMessageBox.Ok)
             return
 
         reply = QMessageBox.question(
@@ -162,7 +162,7 @@ class LogandSign(MyWindow):
         if reply != QMessageBox.Yes:
             return
 
-        result = database.handle_signup_data(username, email, password)
+        result = database.handle_signup_data(username, email, password, status)
 
         if result is True:
             QMessageBox.information(self, "Success", "Sign up successful!", QMessageBox.Ok)
@@ -192,6 +192,6 @@ class LogandSign(MyWindow):
 # ---------------- Main ----------------
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    dialog = LogandSign()
+    dialog = LogandSign(app_manager)
     dialog.show()
     sys.exit(app.exec_())

@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="images">
+    <file>profilephoto.png</file>
+    <file>main_bg.png</file>
     <file>Screenshot 2025-11-16 184411.png</file>
     <file>profilephoto.png</file>
     <file>view.png</file>

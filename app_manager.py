@@ -8,11 +8,9 @@ class ApplicationManager(QApplication):
     def __init__(self, argv):
         super().__init__(argv)
 
-        # Create windows first
         self.logandsign = LogandSign()
         self.fillup = FillupWindow()
 
-        # Inject manager reference
         self.logandsign.app_manager = self
         self.fillup.app_manager = self
 
@@ -29,3 +27,6 @@ class ApplicationManager(QApplication):
 
     def show_fillup(self):
         self._show_main_window(self.fillup)
+
+    def show_login(self):
+        self._show_main_window(self.logandsign)

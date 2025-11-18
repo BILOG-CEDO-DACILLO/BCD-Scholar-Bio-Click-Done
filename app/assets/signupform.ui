@@ -37,7 +37,7 @@ border-radius: 3px;
 }
 
 #firstname, #lastname, #mi, #suffix, #civilstatus, #sex, #birthday, #age, #studentID, #college, #yearlevel, #program, #municipality, #phoneno {
-background-color: #e6e7e2;
+background-color: rgb(241, 241, 241);
 border-radius: 15px;
 padding-left: 10px;
 }
@@ -222,26 +222,6 @@ border-radius: 230px;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="Title">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>581</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>18</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Fill your profile.</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="profilephoto">
     <property name="geometry">
      <rect>
@@ -271,6 +251,9 @@ border: 5px solid white;
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="res.qrc">:/images/profilephoto.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -458,6 +441,9 @@ border: 5px solid white;
       <height>41</height>
      </rect>
     </property>
+    <property name="maxLength">
+     <number>11</number>
+    </property>
     <property name="placeholderText">
      <string>Phone Number</string>
     </property>
@@ -513,10 +499,42 @@ border-radius:20px;</string>
      <string>Contact Info</string>
     </property>
    </widget>
+   <widget class="QLabel" name="Title">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>581</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Fill your profile</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="textlabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>601</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>You can't close this window unless profile is submitted.</string>
+    </property>
+   </widget>
    <zorder>contactinfo</zorder>
    <zorder>studentinfo</zorder>
    <zorder>personalinfo</zorder>
-   <zorder>Title</zorder>
    <zorder>profilephoto</zorder>
    <zorder>label_4</zorder>
    <zorder>lastname</zorder>
@@ -533,6 +551,8 @@ border-radius:20px;</string>
    <zorder>program</zorder>
    <zorder>municipality</zorder>
    <zorder>phoneno</zorder>
+   <zorder>Title</zorder>
+   <zorder>textlabel</zorder>
   </widget>
   <zorder>label</zorder>
   <zorder>widget</zorder>

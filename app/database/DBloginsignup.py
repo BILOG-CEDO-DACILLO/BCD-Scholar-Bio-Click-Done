@@ -1,67 +1,50 @@
 import sqlite3
 import os
 from pathlib import Path
-
-from PyQt5.QtWidgets import QMessageBox
+import bcrypt
 
 
 class Database:
     def __init__(self):
-        # Database path
+        self. setup_paths()
+
+        self.create_tables()
+
+    def setup_paths(self):
         current_file_path = Path(__file__).resolve()
         project_root = current_file_path.parents[2]
         self.db_dir = project_root / "data"
         self.db_dir.mkdir(exist_ok=True)
         self.db_path = self.db_dir / "database.db"
 
-        # Check for corruption
-        if self.db_path.exists():
-            conn = None
-            try:
-                conn = sqlite3.connect(self.db_path)
-                conn.execute("SELECT name FROM sqlite_master;")
-            except sqlite3.DatabaseError:
-                print("Database corrupted! Recreating...")
-                if conn:
-                    conn.close()
-                os.remove(self.db_path)
-            finally:
-                if conn:
-                    conn.close()
-
-        # Create tables
-
     def connect(self):
         return sqlite3.connect(self.db_path)
 
     def create_tables(self):
-        query = """CREATE TABLE IF NOT EXISTS users (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    username TEXT NOT NULL UNIQUE,
-                    email TEXT NOT NULL UNIQUE,
-                    password TEXT NOT NULL
-                )"""
-        conn = sqlite3.connect(self.db_path)
-        try:
-            with conn:
-                conn.execute(query)
-                print("Table created successfully")
-        except Exception as e:
-            print(f"Failed to create table: {e}")
-        finally:
-            conn.close()
+        query = """
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL UNIQUE,
+            email TEXT NOT NULL UNIQUE,
+            password BLOB NOT NULL,
+            scholarship_stat TEXT NOT NULL
+        )
+        """
 
-   #----------------- REGISTER ---------------------------
-    def handle_signup_data(self, username, email, password):
-        conn = sqlite3.connect(self.db_path)
+        with self.connect() as conn:
+            conn.execute(query)
+
+    # -------------- SECURE SIGNUP ----------------
+    def handle_signup_data(self, username, email, password, scholarship_stat):
+        hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+
         try:
-            with conn:
+            with self.connect() as conn:
                 conn.execute(
-                    "INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
-                    (username, email, password)
+                    "INSERT INTO users (username, email, password, scholarship_stat) VALUES (?, ?, ?, ?)",
+                    (username, email, hashed_pw, scholarship_stat),
                 )
-                print(f"Successfully signed up user: {username}")
-                return True
+            return True
         except sqlite3.IntegrityError as e:
             msg = str(e).lower()
             if "username" in msg:
@@ -70,24 +53,29 @@ class Database:
                 return False, "Email already exists."
             return False, "Integrity error."
         except Exception as e:
-            return False, f"Unexpected database error: {e}"
-        finally:
-            conn.close()
+            return False, f"Database error: {e}"
 
+    # -------------- SECURE LOGIN ----------------
     def handle_login_data(self, username, password):
-        conn = sqlite3.connect(self.db_path)
-
-        query1 = f"""SELECT * FROM users WHERE username = ? AND password = ?"""
         try:
-            with conn:
-                user = conn.execute(query1, (username, password)).fetchone()
-                if user[1] == username and user[3] == password:
-                    print(f"Successfully logged in: {user}")
-                    return user
+            with self.connect() as conn:
+                user = conn.execute(
+                    "SELECT * FROM users WHERE username = ?",
+                    (username,)
+                ).fetchone()
+
+            if not user:
+                return False
+
+            stored_hash = user[3]
+
+            if bcrypt.checkpw(password.encode(), stored_hash):
+                return user
+            else:
+                return False
+
         except Exception as e:
-            print(f"Failed to login user: {e}")
+            print(f"Login error: {e}")
             return False
-        finally:
-            conn.close()
-# Initialize
+
 database = Database()
