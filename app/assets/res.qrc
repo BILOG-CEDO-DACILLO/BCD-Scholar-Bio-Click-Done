@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="images">
+    <file>power-switch.png</file>
+    <file>setting.png</file>
+    <file>menu (1).png</file>
+    <file>Registration.png</file>
     <file>lll.png</file>
     <file>educ.png</file>
     <file>dost.png</file>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1209</width>
-    <height>880</height>
+    <height>742</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -80,8 +80,165 @@ border-radius: 25px;
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: #0097b2;</string>
+       <string notr="true">#sidebar_2 {
+	background-color: qlineargradient(spread:pad, x1:0.957684, y1:0, x2:0, y2:0.620136, stop:0 rgba(64, 181, 93, 255), stop:1 rgba(0, 151, 178, 255));
+}
+#settings, #dashboard, #scholar,#exit {
+background-color: transparent;
+}</string>
       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <item>
+        <widget class="QPushButton" name="settings">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/setting.png</normaloff>:/images/setting.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="dashboard">
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/menu (1).png</normaloff>:/images/menu (1).png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="scholar">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/Registration.png</normaloff>:/images/Registration.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Minimum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>417</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exit">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/power-switch.png</normaloff>:/images/power-switch.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
     <item>
@@ -99,8 +256,170 @@ border-radius: 25px;
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 151, 178);</string>
+       <string notr="true">#sidebar {
+	background-color: qlineargradient(spread:pad, x1:0.957684, y1:0, x2:0, y2:0.620136, stop:0 rgba(64, 181, 93, 255), stop:1 rgba(0, 151, 178, 255));
+}
+#settings2, #dashboard2, #scholar2,#exit2 {
+background-color: transparent;
+}</string>
       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <item>
+        <widget class="QPushButton" name="settings2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Settings</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/setting.png</normaloff>:/images/setting.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="dashboard2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Dashboard</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/menu (1).png</normaloff>:/images/menu (1).png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>35</width>
+           <height>35</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="scholar2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Scholars</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/Registration.png</normaloff>:/images/Registration.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Minimum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>417</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exit2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Exit</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/power-switch.png</normaloff>:/images/power-switch.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
     <item>
@@ -116,16 +435,16 @@ border-radius: 25px;
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
-        <number>0</number>
+        <number>6</number>
        </property>
        <property name="leftMargin">
         <number>9</number>
        </property>
        <property name="topMargin">
-        <number>5</number>
+        <number>9</number>
        </property>
        <property name="rightMargin">
-        <number>0</number>
+        <number>9</number>
        </property>
        <property name="bottomMargin">
         <number>0</number>
@@ -496,7 +815,9 @@ border:3px solid white;
 border-radius: 25px;
 color: white;
 }
-</string>
+
+#settings, #dashboard, #scholar {
+}</string>
          </property>
          <property name="widgetResizable">
           <bool>true</bool>
@@ -506,320 +827,12 @@ color: white;
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>878</width>
-            <height>673</height>
+            <width>851</width>
+            <height>525</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout">
-           <item row="0" column="1">
-            <widget class="QFrame" name="bcd_scholarship">
-             <property name="minimumSize">
-              <size>
-               <width>400</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>700</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_6">
-              <item>
-               <widget class="QLabel" name="label_5">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: transparent;
-border-radius: 50px;
-</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/bcd.png</pixmap>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_5" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_5">
-                 <item>
-                  <widget class="QLabel" name="bcdLabel">
-                   <property name="text">
-                    <string>BCD SCHOLARSHIP</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="bcdLabel2">
-                   <property name="text">
-                    <string>Amount - Php 10,000</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="bcdLabel3">
-                   <property name="text">
-                    <string>Deadline - 23/11/25</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="applybtn2">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Apply</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QFrame" name="educ_assistance">
-             <property name="minimumSize">
-              <size>
-               <width>400</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>700</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_10">
-              <item>
-               <widget class="QLabel" name="label_9">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: transparent;
-border-radius: 50px;
-background-image: url(:/images/bsu.png);</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/educ.png</pixmap>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_9" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_9">
-                 <item>
-                  <widget class="QLabel" name="educLabel">
-                   <property name="text">
-                    <string>EDUCATIONAL ASSISTANCE</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="educLabel2">
-                   <property name="text">
-                    <string>Amount - Php 8,000</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="educLabel3">
-                   <property name="text">
-                    <string> Deadline - 23/11/25</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="applybtn5">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Apply</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QFrame" name="acad">
-             <property name="minimumSize">
-              <size>
-               <width>400</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>700</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#financial_assistance {
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.443, x2:0.536737, y2:0.455, stop:0 rgba(0, 161, 75, 255), stop:0.678947 rgba(255, 255, 255, 255));
-}</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_7">
-              <item>
-               <widget class="QLabel" name="label_6">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: transparent;
-border-radius: 50px;
-background-image: url(:/images/bsu.png);</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_6" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_6">
-                 <item>
-                  <widget class="QLabel" name="acad_2">
-                   <property name="text">
-                    <string>ACADEMIC MERIT</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="acad2">
-                   <property name="text">
-                    <string>Amount - Php 15,000</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="acad3">
-                   <property name="text">
-                    <string> Deadline - 23/11/26</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="applybtn6">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Apply</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="1" column="1">
+           <item row="2" column="1">
             <widget class="QFrame" name="lll">
              <property name="minimumSize">
               <size>
@@ -922,7 +935,314 @@ background-image: url(:/images/bsu.png);</string>
              </layout>
             </widget>
            </item>
-           <item row="0" column="0">
+           <item row="3" column="0">
+            <widget class="QFrame" name="acad">
+             <property name="minimumSize">
+              <size>
+               <width>400</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>700</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#financial_assistance {
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.443, x2:0.536737, y2:0.455, stop:0 rgba(0, 161, 75, 255), stop:0.678947 rgba(255, 255, 255, 255));
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/acad.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_6" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <item>
+                  <widget class="QLabel" name="acad_2">
+                   <property name="text">
+                    <string>ACADEMIC MERIT</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="acad2">
+                   <property name="text">
+                    <string>Amount - Php 15,000</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="acad3">
+                   <property name="text">
+                    <string> Deadline - 23/11/26</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="applybtn6">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>150</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Apply</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QFrame" name="dost">
+             <property name="minimumSize">
+              <size>
+               <width>400</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>700</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#financial_assistance {
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.443, x2:0.536737, y2:0.455, stop:0 rgba(0, 161, 75, 255), stop:0.678947 rgba(255, 255, 255, 255));
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <item>
+               <widget class="QLabel" name="label_7">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/dost.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_7" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_7">
+                 <item>
+                  <widget class="QLabel" name="dost_2">
+                   <property name="text">
+                    <string>DOST SCHOLARSHIP</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dost2">
+                   <property name="text">
+                    <string>Amount - Php 65,000</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="dost3">
+                   <property name="text">
+                    <string> Deadline - 23/11/26</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="applybtn3">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>150</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Apply</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QFrame" name="educ_assistance">
+             <property name="minimumSize">
+              <size>
+               <width>400</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>700</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/educ.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_9" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <item>
+                  <widget class="QLabel" name="educLabel">
+                   <property name="text">
+                    <string>EDUCATIONAL ASSISTANCE</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="educLabel2">
+                   <property name="text">
+                    <string>Amount - Php 8,000</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="educLabel3">
+                   <property name="text">
+                    <string> Deadline - 23/11/25</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="applybtn5">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>150</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Apply</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
             <widget class="QFrame" name="financial_assistance">
              <property name="minimumSize">
               <size>
@@ -1022,8 +1342,8 @@ background-image: url(:/images/bsu.png);</string>
              </layout>
             </widget>
            </item>
-           <item row="2" column="1">
-            <widget class="QFrame" name="dost">
+           <item row="1" column="1">
+            <widget class="QFrame" name="bcd_scholarship">
              <property name="minimumSize">
               <size>
                <width>400</width>
@@ -1037,9 +1357,7 @@ background-image: url(:/images/bsu.png);</string>
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">#financial_assistance {
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.443, x2:0.536737, y2:0.455, stop:0 rgba(0, 161, 75, 255), stop:0.678947 rgba(255, 255, 255, 255));
-}</string>
+              <string notr="true"/>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -1047,9 +1365,9 @@ background-image: url(:/images/bsu.png);</string>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
               <item>
-               <widget class="QLabel" name="label_7">
+               <widget class="QLabel" name="label_5">
                 <property name="minimumSize">
                  <size>
                   <width>100</width>
@@ -1065,10 +1383,13 @@ background-image: url(:/images/bsu.png);</string>
                 <property name="styleSheet">
                  <string notr="true">background-color: transparent;
 border-radius: 50px;
-background-image: url(:/images/bsu.png);</string>
+</string>
                 </property>
                 <property name="text">
                  <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/bcd.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -1076,26 +1397,26 @@ background-image: url(:/images/bsu.png);</string>
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="widget_7" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_7">
+               <widget class="QWidget" name="widget_5" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_5">
                  <item>
-                  <widget class="QLabel" name="dost_2">
+                  <widget class="QLabel" name="bcdLabel">
                    <property name="text">
-                    <string>DOST SCHOLARSHIP</string>
+                    <string>BCD SCHOLARSHIP</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="dost2">
+                  <widget class="QLabel" name="bcdLabel2">
                    <property name="text">
-                    <string>Amount - Php 65,000</string>
+                    <string>Amount - Php 10,000</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="dost3">
+                  <widget class="QLabel" name="bcdLabel3">
                    <property name="text">
-                    <string> Deadline - 23/11/26</string>
+                    <string>Deadline - 23/11/25</string>
                    </property>
                   </widget>
                  </item>
@@ -1103,7 +1424,7 @@ background-image: url(:/images/bsu.png);</string>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="applybtn3">
+               <widget class="QPushButton" name="applybtn2">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -1136,6 +1457,7 @@ background-image: url(:/images/bsu.png);</string>
  </widget>
  <resources>
   <include location="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc"/>
+  <include location="res.qrc"/>
  </resources>
  <connections>
   <connection>
