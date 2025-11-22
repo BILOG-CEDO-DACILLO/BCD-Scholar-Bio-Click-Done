@@ -6,12 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1209</width>
-    <height>742</height>
+    <width>1197</width>
+    <height>866</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#MainWindow {
+	background-color: rgb(255, 255, 255);
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
@@ -21,37 +26,11 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-
-#ScrollArea {
-background-color: qlineargradient(spread:reflect, x1:0.542, y1:0.5, x2:1, y2:0.494, stop:0.684211 rgba(255, 255, 255, 255), stop:1 rgba(204, 204, 204, 255));
-}
-
-#topmenu {
-border-image: url(:/images/topbar.png) 0 0 0 0 stretch;
-border-radius:15px;
-}
-
-#searchbar{
-background-color: transparent;
-border-radius: 10px 0 0 0;
-padding-left: 10px;
-
-}
-
-#searchbtn {
-background-color: transparent;
-}
-
-#search_bar_wid {
-border: 2px solid black;
-background-color: white;
-border-radius: 25px;
-}</string>
+    <string notr="true"/>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <property name="spacing">
-     <number>0</number>
+     <number>6</number>
     </property>
     <property name="leftMargin">
      <number>0</number>
@@ -69,7 +48,7 @@ border-radius: 25px;
      <widget class="QWidget" name="sidebar_2" native="true">
       <property name="minimumSize">
        <size>
-        <width>70</width>
+        <width>90</width>
         <height>0</height>
        </size>
       </property>
@@ -83,12 +62,232 @@ border-radius: 25px;
        <string notr="true">#sidebar_2 {
 	background-color: qlineargradient(spread:pad, x1:0.957684, y1:0, x2:0, y2:0.620136, stop:0 rgba(64, 181, 93, 255), stop:1 rgba(0, 151, 178, 255));
 }
-#settings, #dashboard, #scholar,#exit {
+
+QPushButton {
 background-color: transparent;
+color: white;
+}
+
+QPushButton:checked {
+background-color:  white;
+color: rgb(8, 155, 167);
+border-top-left-radius: 15px;
+border-bottom-left-radius: 15px;
+}
+
+#userProfile {
+background-color: white;
+border-radius: 35px
 }</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_10">
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="userProfile">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/profilephoto.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
        <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>30</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item alignment="Qt::AlignRight">
+        <widget class="QPushButton" name="profile">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/user-edit.png</normaloff>
+           <normalon>:/images/user-edit (1).png</normalon>:/images/user-edit.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>35</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignRight">
+        <widget class="QPushButton" name="home">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/home.png</normaloff>
+           <normalon>:/images/home (1).png</normalon>:/images/home.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>35</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignRight">
+        <widget class="QPushButton" name="dashboard">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/menu (1).png</normaloff>
+           <normalon>:/images/menu (2).png</normalon>:/images/menu (1).png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignRight">
+        <widget class="QPushButton" name="scholar">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/Registration.png</normaloff>
+           <normalon>:/images/Screenshot 2025-11-22 213126.png</normalon>:/images/Registration.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>35</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignRight">
         <widget class="QPushButton" name="settings">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
@@ -119,77 +318,20 @@ background-color: transparent;
          </property>
          <property name="icon">
           <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
-           <normaloff>:/images/setting.png</normaloff>:/images/setting.png</iconset>
+           <normaloff>:/images/setting.png</normaloff>
+           <normalon>:/images/setting (1).png</normalon>:/images/setting.png</iconset>
          </property>
          <property name="iconSize">
           <size>
-           <width>60</width>
-           <height>60</height>
+           <width>35</width>
+           <height>35</height>
           </size>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="dashboard">
-         <property name="maximumSize">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
-           <normaloff>:/images/menu (1).png</normaloff>:/images/menu (1).png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>50</width>
-           <height>50</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="scholar">
-         <property name="minimumSize">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
-           <normaloff>:/images/Registration.png</normaloff>:/images/Registration.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>60</width>
-           <height>60</height>
-          </size>
+         <property name="autoExclusive">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -209,7 +351,7 @@ background-color: transparent;
          </property>
         </spacer>
        </item>
-       <item>
+       <item alignment="Qt::AlignRight">
         <widget class="QPushButton" name="exit">
          <property name="minimumSize">
           <size>
@@ -228,13 +370,20 @@ background-color: transparent;
          </property>
          <property name="icon">
           <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
-           <normaloff>:/images/power-switch.png</normaloff>:/images/power-switch.png</iconset>
+           <normaloff>:/images/power-switch.png</normaloff>
+           <normalon>:/images/power-switch (1).png</normalon>:/images/power-switch.png</iconset>
          </property>
          <property name="iconSize">
           <size>
-           <width>60</width>
-           <height>60</height>
+           <width>35</width>
+           <height>35</height>
           </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -259,22 +408,236 @@ background-color: transparent;
        <string notr="true">#sidebar {
 	background-color: qlineargradient(spread:pad, x1:0.957684, y1:0, x2:0, y2:0.620136, stop:0 rgba(64, 181, 93, 255), stop:1 rgba(0, 151, 178, 255));
 }
-#settings2, #dashboard2, #scholar2,#exit2 {
+QPushButton {
 background-color: transparent;
+color: white;
+}
+
+QPushButton:checked {
+background-color:  white;
+color: rgb(8, 155, 167);
+border-top-left-radius: 15px;
+border-bottom-left-radius: 15px;
+}
+
+#userProfile2 {
+background-color: white;
+border-radius: 50px
 }</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_11">
-       <item>
-        <widget class="QPushButton" name="settings2">
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>15</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="userProfile2">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/profilephoto.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignRight">
+        <widget class="QPushButton" name="profile2">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
            <height>70</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>16777215</width>
+           <width>200</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Profile</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/user-edit.png</normaloff>
+           <normalon>:/images/user-edit (1).png</normalon>:/images/user-edit.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>35</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignRight">
+        <widget class="QPushButton" name="home2">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Home</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/home.png</normaloff>
+           <normalon>:/images/home (1).png</normalon>:/images/home.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>35</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignRight">
+        <widget class="QPushButton" name="dashboard2">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Dashboard</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/menu (1).png</normaloff>
+           <normalon>:/images/menu (2).png</normalon>:/images/menu (1).png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignRight">
+        <widget class="QPushButton" name="scholar2">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Scholars</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
+           <normaloff>:/images/Registration.png</normaloff>
+           <normalon>:/images/Screenshot 2025-11-22 213126.png</normalon>:/images/Registration.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>35</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignRight">
+        <widget class="QPushButton" name="settings2">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
            <height>70</height>
           </size>
          </property>
@@ -291,41 +654,8 @@ background-color: transparent;
          </property>
          <property name="icon">
           <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
-           <normaloff>:/images/setting.png</normaloff>:/images/setting.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>50</width>
-           <height>50</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="dashboard2">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Dashboard</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
-           <normaloff>:/images/menu (1).png</normaloff>:/images/menu (1).png</iconset>
+           <normaloff>:/images/setting.png</normaloff>
+           <normalon>:/images/setting (1).png</normalon>:/images/setting.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -333,39 +663,11 @@ background-color: transparent;
            <height>35</height>
           </size>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="scholar2">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>70</height>
-          </size>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Scholars</string>
-         </property>
-         <property name="icon">
-          <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
-           <normaloff>:/images/Registration.png</normaloff>:/images/Registration.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>60</width>
-           <height>60</height>
-          </size>
+         <property name="autoExclusive">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -385,17 +687,17 @@ background-color: transparent;
          </property>
         </spacer>
        </item>
-       <item>
+       <item alignment="Qt::AlignRight">
         <widget class="QPushButton" name="exit2">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>200</width>
            <height>70</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>16777215</width>
+           <width>200</width>
            <height>70</height>
           </size>
          </property>
@@ -409,17 +711,31 @@ background-color: transparent;
          </property>
          <property name="icon">
           <iconset resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">
-           <normaloff>:/images/power-switch.png</normaloff>:/images/power-switch.png</iconset>
+           <normaloff>:/images/power-switch.png</normaloff>
+           <normalon>:/images/power-switch (1).png</normalon>:/images/power-switch.png</iconset>
          </property>
          <property name="iconSize">
           <size>
-           <width>60</width>
-           <height>60</height>
+           <width>35</width>
+           <height>35</height>
           </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
       </layout>
+      <zorder>scholar2</zorder>
+      <zorder>exit2</zorder>
+      <zorder>settings2</zorder>
+      <zorder>userProfile2</zorder>
+      <zorder>profile2</zorder>
+      <zorder>dashboard2</zorder>
+      <zorder>home2</zorder>
      </widget>
     </item>
     <item>
@@ -438,7 +754,7 @@ background-color: transparent;
         <number>6</number>
        </property>
        <property name="leftMargin">
-        <number>9</number>
+        <number>0</number>
        </property>
        <property name="topMargin">
         <number>9</number>
@@ -464,7 +780,32 @@ background-color: transparent;
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">#topmenu {
+border-image: url(:/images/topbar.png) 0 0 0 0 stretch;
+border-radius:15px;
+}
+
+#searchbar{
+background-color: transparent;
+border-radius: 10px 0 0 0;
+padding-left: 10px;
+
+}
+
+#searchbtn {
+background-color: transparent;
+}
+
+#search_bar_wid {
+border: 2px solid black;
+background-color: white;
+border-radius: 25px;
+}
+
+#profile {
+background-color: transparent;
+border-radius: 35px
+}</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <property name="spacing">
@@ -725,37 +1066,6 @@ background-color: transparent;
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_2">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>70</width>
-                    <height>70</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>70</width>
-                    <height>70</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/profilephoto.png</pixmap>
-                  </property>
-                  <property name="scaledContents">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
                  <spacer name="horizontalSpacer_2">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
@@ -803,9 +1113,37 @@ background-color: transparent;
         </widget>
        </item>
        <item>
-        <widget class="QScrollArea" name="scrollArea">
+        <widget class="QStackedWidget" name="stacks">
          <property name="styleSheet">
-          <string notr="true">#financial_assistance, #bcd_scholarship, #educ_assistance, #lll, #acad, #dost {
+          <string notr="true">#stacks {
+	background-color: transparent;
+}
+
+#page {
+background-color: transparent;
+}
+
+QScrollArea QWidget {
+        background-color: transparent;
+    }
+</string>
+         </property>
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
+         <widget class="QWidget" name="page"/>
+         <widget class="QWidget" name="homepage">
+          <layout class="QVBoxLayout" name="verticalLayout_12">
+           <item>
+            <widget class="QScrollArea" name="scrollArea">
+             <property name="styleSheet">
+              <string notr="true">#scrollArea {
+border: 2px solid #528d45;
+border-radius: 20px;
+background-color: transparent;
+}
+
+#financial_assistance, #bcd_scholarship, #educ_assistance, #lll, #acad, #dost {
 background-color: qlineargradient(spread:pad, x1:1, y1:0.443, x2:0.536737, y2:0.455, stop:0 rgba(0, 161, 75, 255), stop:0.678947 rgba(255, 255, 255, 255));
 border-radius: 75px;
 }
@@ -815,549 +1153,649 @@ border:3px solid white;
 border-radius: 25px;
 color: white;
 }
-
-#settings, #dashboard, #scholar {
-}</string>
-         </property>
-         <property name="widgetResizable">
-          <bool>true</bool>
-         </property>
-         <widget class="QWidget" name="ScrollArea">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>851</width>
-            <height>525</height>
-           </rect>
-          </property>
-          <layout class="QGridLayout" name="gridLayout">
-           <item row="2" column="1">
-            <widget class="QFrame" name="lll">
-             <property name="minimumSize">
-              <size>
-               <width>400</width>
-               <height>150</height>
-              </size>
+</string>
              </property>
-             <property name="maximumSize">
-              <size>
-               <width>700</width>
-               <height>150</height>
-              </size>
+             <property name="widgetResizable">
+              <bool>true</bool>
              </property>
-             <property name="styleSheet">
-              <string notr="true">#financial_assistance {
+             <widget class="QWidget" name="ScrollArea">
+              <property name="geometry">
+               <rect>
+                <x>-127</x>
+                <y>0</y>
+                <width>1424</width>
+                <height>608</height>
+               </rect>
+              </property>
+              <layout class="QGridLayout" name="gridLayout">
+               <item row="2" column="1">
+                <widget class="QFrame" name="lll">
+                 <property name="minimumSize">
+                  <size>
+                   <width>700</width>
+                   <height>150</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>700</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">#financial_assistance {
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.443, x2:0.536737, y2:0.455, stop:0 rgba(0, 161, 75, 255), stop:0.678947 rgba(255, 255, 255, 255));
 }</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_9">
-              <item>
-               <widget class="QLabel" name="label_8">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/lll.png</pixmap>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_8" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_8">
-                 <item>
-                  <widget class="QLabel" name="lll_2">
-                   <property name="text">
-                    <string>LINGKOD LEGARDA LEVISTE</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="lll2">
-                   <property name="text">
-                    <string>Amount - Php 15,000</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="lll3">
-                   <property name="text">
-                    <string> Deadline - 23/11/25</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="applybtn4">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Apply</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QFrame" name="acad">
-             <property name="minimumSize">
-              <size>
-               <width>400</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>700</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#financial_assistance {
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_9">
+                  <item>
+                   <widget class="QLabel" name="label_8">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/lll.png</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget_8" native="true">
+                    <layout class="QVBoxLayout" name="verticalLayout_8">
+                     <item>
+                      <widget class="QLabel" name="lll_2">
+                       <property name="text">
+                        <string>LINGKOD LEGARDA LEVISTE</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="lll2">
+                       <property name="text">
+                        <string>Amount - Php 15,000</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="lll3">
+                       <property name="text">
+                        <string> Deadline - 23/11/25</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="applybtn4">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QFrame" name="acad">
+                 <property name="minimumSize">
+                  <size>
+                   <width>700</width>
+                   <height>150</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>700</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">#financial_assistance {
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.443, x2:0.536737, y2:0.455, stop:0 rgba(0, 161, 75, 255), stop:0.678947 rgba(255, 255, 255, 255));
 }</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_7">
-              <item>
-               <widget class="QLabel" name="label_6">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/acad.png</pixmap>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_6" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_6">
-                 <item>
-                  <widget class="QLabel" name="acad_2">
-                   <property name="text">
-                    <string>ACADEMIC MERIT</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="acad2">
-                   <property name="text">
-                    <string>Amount - Php 15,000</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="acad3">
-                   <property name="text">
-                    <string> Deadline - 23/11/26</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="applybtn6">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Apply</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QFrame" name="dost">
-             <property name="minimumSize">
-              <size>
-               <width>400</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>700</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#financial_assistance {
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_7">
+                  <item>
+                   <widget class="QLabel" name="label_6">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/acad.png</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget_6" native="true">
+                    <layout class="QVBoxLayout" name="verticalLayout_6">
+                     <item>
+                      <widget class="QLabel" name="acad_2">
+                       <property name="text">
+                        <string>ACADEMIC MERIT</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="acad2">
+                       <property name="text">
+                        <string>Amount - Php 15,000</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="acad3">
+                       <property name="text">
+                        <string> Deadline - 23/11/26</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="applybtn6">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QFrame" name="dost">
+                 <property name="minimumSize">
+                  <size>
+                   <width>700</width>
+                   <height>150</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>700</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">#financial_assistance {
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.443, x2:0.536737, y2:0.455, stop:0 rgba(0, 161, 75, 255), stop:0.678947 rgba(255, 255, 255, 255));
 }</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_8">
-              <item>
-               <widget class="QLabel" name="label_7">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/dost.png</pixmap>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_7" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_7">
-                 <item>
-                  <widget class="QLabel" name="dost_2">
-                   <property name="text">
-                    <string>DOST SCHOLARSHIP</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="dost2">
-                   <property name="text">
-                    <string>Amount - Php 65,000</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="dost3">
-                   <property name="text">
-                    <string> Deadline - 23/11/26</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="applybtn3">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Apply</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QFrame" name="educ_assistance">
-             <property name="minimumSize">
-              <size>
-               <width>400</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>700</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_10">
-              <item>
-               <widget class="QLabel" name="label_9">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/educ.png</pixmap>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_9" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_9">
-                 <item>
-                  <widget class="QLabel" name="educLabel">
-                   <property name="text">
-                    <string>EDUCATIONAL ASSISTANCE</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="educLabel2">
-                   <property name="text">
-                    <string>Amount - Php 8,000</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="educLabel3">
-                   <property name="text">
-                    <string> Deadline - 23/11/25</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="applybtn5">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Apply</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QFrame" name="financial_assistance">
-             <property name="minimumSize">
-              <size>
-               <width>400</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>700</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_5">
-              <item>
-               <widget class="QLabel" name="label_4">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: transparent;
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_8">
+                  <item>
+                   <widget class="QLabel" name="label_7">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/dost.png</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget_7" native="true">
+                    <layout class="QVBoxLayout" name="verticalLayout_7">
+                     <item>
+                      <widget class="QLabel" name="dost_2">
+                       <property name="text">
+                        <string>DOST SCHOLARSHIP</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="dost2">
+                       <property name="text">
+                        <string>Amount - Php 65,000</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="dost3">
+                       <property name="text">
+                        <string> Deadline - 23/11/26</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="applybtn3">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QFrame" name="educ_assistance">
+                 <property name="minimumSize">
+                  <size>
+                   <width>700</width>
+                   <height>150</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>700</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_10">
+                  <item>
+                   <widget class="QLabel" name="label_9">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/educ.png</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget_9" native="true">
+                    <layout class="QVBoxLayout" name="verticalLayout_9">
+                     <item>
+                      <widget class="QLabel" name="educLabel">
+                       <property name="text">
+                        <string>EDUCATIONAL ASSISTANCE</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="educLabel2">
+                       <property name="text">
+                        <string>Amount - Php 8,000</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="educLabel3">
+                       <property name="text">
+                        <string> Deadline - 23/11/25</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="applybtn5">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QFrame" name="financial_assistance">
+                 <property name="minimumSize">
+                  <size>
+                   <width>700</width>
+                   <height>150</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>700</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_5">
+                  <item>
+                   <widget class="QLabel" name="label_4">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: transparent;
 border-radius: 50px;
 background-image: url(:/images/bsu.png);</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_4" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_4">
-                 <item>
-                  <widget class="QLabel" name="financialLabel">
-                   <property name="text">
-                    <string>FINANCIAL ASSISTANCE</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="financialLabel2">
-                   <property name="text">
-                    <string>Amount - Php 7,000</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="financialLabel3">
-                   <property name="text">
-                    <string>Deadline - 23/11/25</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="applybtn">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Apply</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget_4" native="true">
+                    <layout class="QVBoxLayout" name="verticalLayout_4">
+                     <item>
+                      <widget class="QLabel" name="financialLabel">
+                       <property name="text">
+                        <string>FINANCIAL ASSISTANCE</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="financialLabel2">
+                       <property name="text">
+                        <string>Amount - Php 7,000</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="financialLabel3">
+                       <property name="text">
+                        <string>Deadline - 23/11/25</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="applybtn">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QFrame" name="bcd_scholarship">
+                 <property name="minimumSize">
+                  <size>
+                   <width>700</width>
+                   <height>150</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>700</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_6">
+                  <item>
+                   <widget class="QLabel" name="label_5">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>100</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: transparent;
+border-radius: 50px;
+</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/bcd.png</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget_5" native="true">
+                    <layout class="QVBoxLayout" name="verticalLayout_5">
+                     <item>
+                      <widget class="QLabel" name="bcdLabel">
+                       <property name="text">
+                        <string>BCD SCHOLARSHIP</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="bcdLabel2">
+                       <property name="text">
+                        <string>Amount - Php 10,000</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="bcdLabel3">
+                       <property name="text">
+                        <string>Deadline - 23/11/25</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="applybtn2">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QFrame" name="bcd_scholarship">
+          </layout>
+         </widget>
+         <widget class="QWidget" name="dashboardpage">
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QFrame" name="frame_2">
              <property name="minimumSize">
               <size>
-               <width>400</width>
-               <height>150</height>
+               <width>300</width>
+               <height>0</height>
               </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>700</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -1365,84 +1803,36 @@ background-image: url(:/images/bsu.png);</string>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_6">
-              <item>
-               <widget class="QLabel" name="label_5">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>100</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: transparent;
-border-radius: 50px;
-</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="../../../../../../../../Codes/Online-Shopping-System/app/assets/res.qrc">:/images/bcd.png</pixmap>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_5" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_5">
-                 <item>
-                  <widget class="QLabel" name="bcdLabel">
-                   <property name="text">
-                    <string>BCD SCHOLARSHIP</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="bcdLabel2">
-                   <property name="text">
-                    <string>Amount - Php 10,000</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="bcdLabel3">
-                   <property name="text">
-                    <string>Deadline - 23/11/25</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="applybtn2">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>150</width>
-                  <height>50</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Apply</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <widget class="QLabel" name="label_2">
+              <property name="geometry">
+               <rect>
+                <x>130</x>
+                <y>260</y>
+                <width>55</width>
+                <height>16</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>dashboard</string>
+              </property>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QScrollArea" name="scrollArea_2">
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="scrollAreaWidgetContents_2">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>510</width>
+                <height>631</height>
+               </rect>
+              </property>
+             </widget>
             </widget>
            </item>
           </layout>
@@ -1467,8 +1857,8 @@ border-radius: 50px;
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>355</x>
-     <y>79</y>
+     <x>426</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
      <x>228</x>
@@ -1489,6 +1879,278 @@ border-radius: 50px;
     <hint type="destinationlabel">
      <x>54</x>
      <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>settings</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>settings2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>69</x>
+     <y>483</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>191</x>
+     <y>471</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scholar</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>scholar2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>62</x>
+     <y>399</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>205</x>
+     <y>386</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dashboard</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dashboard2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>67</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>175</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>profile</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>profile2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>51</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>173</x>
+     <y>170</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exit</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>exit2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>35</x>
+     <y>849</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>841</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exit2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>exit</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>156</x>
+     <y>827</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>26</x>
+     <y>827</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>settings2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>settings</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>173</x>
+     <y>459</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>50</x>
+     <y>455</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scholar2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>scholar</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>175</x>
+     <y>406</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>413</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dashboard2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dashboard</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>323</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>76</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>profile2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>profile</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>163</x>
+     <y>153</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>58</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>home</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>home2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>67</x>
+     <y>229</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>212</x>
+     <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>home2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>home</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>51</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exit</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>51</x>
+     <y>844</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>55</x>
+     <y>865</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>profile</sender>
+   <signal>released()</signal>
+   <receiver>topmenu</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>161</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>769</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>profile</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>topmenu</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>161</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>769</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>profile2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>topmenu</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>277</x>
+     <y>156</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>769</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>profile2</sender>
+   <signal>released()</signal>
+   <receiver>topmenu</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>298</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>769</x>
+     <y>108</y>
     </hint>
    </hints>
   </connection>

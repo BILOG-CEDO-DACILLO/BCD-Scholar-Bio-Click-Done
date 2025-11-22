@@ -1,5 +1,13 @@
 <RCC>
   <qresource prefix="images">
+    <file>home (1).png</file>
+    <file>home.png</file>
+    <file>Screenshot 2025-11-22 213126.png</file>
+    <file>power-switch (1).png</file>
+    <file>setting (1).png</file>
+    <file>menu (2).png</file>
+    <file>user-edit (1).png</file>
+    <file>user-edit.png</file>
     <file>power-switch.png</file>
     <file>setting.png</file>
     <file>menu (1).png</file>
