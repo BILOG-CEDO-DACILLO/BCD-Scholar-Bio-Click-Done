@@ -16,6 +16,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setup_ui()
         self.setup_fonts()
         self.setup_shadows()
+        self.setup_sidebar()
 
 
         #-------------------------------------------- This setups the paths ----------------
@@ -52,9 +53,10 @@ class MainWindow(QtWidgets.QMainWindow):
             self.largelabel_font: [self.welcome_lbl],
             self.mediumlabel_font: [self.applybtn, self.applybtn2, self.applybtn3, self.applybtn4, self.applybtn5,
                                     self.applybtn6, self.financialLabel, self.bcdLabel, self.educLabel, self.lll_2,
-                                    self.acad_2, self.dost_2],
+                                    self.acad_2, self.dost_2, self.settings2, self.dashboard2, self.scholar2, self.exit2,
+                                    self.profile2, self.home2],
             self.field_font: [self.financialLabel2, self.financialLabel3, self.bcdLabel2, self.bcdLabel3, self.educLabel2,
-                              self.educLabel3, self.lll2, self.lll3, self.acad2, self.acad3, self.dost2, self.dost3],
+                              self.educLabel3, self.lll2, self.lll3, self.acad2, self.acad3, self.dost2, self.dost3]
         }
         for font, widgets in font_map.items():
             for widget in widgets:
@@ -67,6 +69,23 @@ class MainWindow(QtWidgets.QMainWindow):
         ]
         for widget in widgets_to_shadow:
             DesignShadow(widget)
+        #---------------------------------------------- This functions switch screens ---------------
+    def setup_sidebar(self):
+        self.dashboard.clicked.connect(self.switch_to_dashboard)
+        self.dashboard2.clicked.connect(self.switch_to_dashboard)
+        self.home.clicked.connect(self.switch_to_home)
+        self.home2.clicked.connect(self.switch_to_home)
+        self.profile.clicked.connect(self.switch_to_profile)
+        self.profile2.clicked.connect(self.switch_to_profile)
+
+    def switch_to_profile(self):
+        self.stacks.setCurrentIndex(0)
+
+    def switch_to_home(self):
+        self.stacks.setCurrentIndex(1)
+
+    def switch_to_dashboard(self):
+        self.stacks.setCurrentIndex(2)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
