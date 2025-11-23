@@ -83,7 +83,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.scholar.clicked.connect(self.switch_to_scholar)
         self.scholar2.clicked.connect(self.switch_to_scholar)
         self.applybtn.clicked.connect(self.apply_to_bsu)
-#update
+
     def switch_to_profile(self):
         self.stacks.setCurrentIndex(0)
 
@@ -101,6 +101,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def apply_to_bsu(self):
         self.stacks.setCurrentIndex(4)
+        self.applylogo.setVisible(True)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
