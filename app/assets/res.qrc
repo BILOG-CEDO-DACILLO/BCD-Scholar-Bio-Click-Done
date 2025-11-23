@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>bsutrans.png</file>
     <file>home (1).png</file>
     <file>home.png</file>
     <file>Screenshot 2025-11-22 213126.png</file>
@@ -35,6 +36,26 @@
     <file>user.png</file>
     <file>exit.png</file>
     <file>bg.png</file>
+  </qresource>
+  <qresource prefix="monsterrat">
+    <file>Montserrat-Black.ttf</file>
+    <file>Montserrat-BlackItalic.ttf</file>
+    <file>Montserrat-Bold.ttf</file>
+    <file>Montserrat-BoldItalic.ttf</file>
+    <file>Montserrat-ExtraBold.ttf</file>
+    <file>Montserrat-ExtraBoldItalic.ttf</file>
+    <file>Montserrat-ExtraLight.ttf</file>
+    <file>Montserrat-ExtraLightItalic.ttf</file>
+    <file>Montserrat-Italic.ttf</file>
+    <file>Montserrat-Light.ttf</file>
+    <file>Montserrat-LightItalic.ttf</file>
+    <file>Montserrat-Medium.ttf</file>
+    <file>Montserrat-MediumItalic.ttf</file>
+    <file>Montserrat-Regular.ttf</file>
+    <file>Montserrat-SemiBold.ttf</file>
+    <file>Montserrat-SemiBoldItalic.ttf</file>
+    <file>Montserrat-Thin.ttf</file>
+    <file>Montserrat-ThinItalic.ttf</file>
   </qresource>
   <qresource prefix="fonts">
     <file>InclusiveSans-Bold.ttf</file>

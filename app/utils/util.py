@@ -10,7 +10,6 @@ from PyQt5.QtGui import QPixmap, QRegion
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtWidgets import QWidget  # Needed for QFileDialog context
 
-
 class setup_profile(QLabel):
 
     def __init__(self, target_label: QLabel, default_path: str):
