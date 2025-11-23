@@ -83,7 +83,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.scholar.clicked.connect(self.switch_to_scholar)
         self.scholar2.clicked.connect(self.switch_to_scholar)
         self.applybtn.clicked.connect(self.apply_to_bsu)
-
+#update
     def switch_to_profile(self):
         self.stacks.setCurrentIndex(0)
 
