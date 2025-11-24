@@ -92,7 +92,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.dashboard2.clicked.connect(lambda: (self.uppertop.setVisible(True), self.stacks.setCurrentIndex(2), self.applylogo.setHidden(True)))
         self.scholar.clicked.connect(lambda: (self.uppertop.setVisible(True), self.stacks.setCurrentIndex(3), self.applylogo.setHidden(True)))
         self.scholar2.clicked.connect(lambda: (self.uppertop.setVisible(True), self.stacks.setCurrentIndex(3), self.applylogo.setHidden(True)))
-        self.applybtn.clicked.connect(lambda: (self.stacks.setCurrentIndex(4), self.applylogo.setVisible(True)))
+        self.applybtn.clicked.connect(lambda: (self.stacks.setCurrentIndex(4),self.bsustacks.setCurrentIndex(0), self.applylogo.setVisible(True)))
 
     def bsu_scholarshipBTN(self):
         self.nextbtn_2.setDisabled(True)
@@ -104,7 +104,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.nextbtn_3.clicked.connect(lambda: self.bsustacks.setCurrentIndex(3))
 
     def setup_user_info(self):
-        self.user_info = database.handle_information_data(username="julbymier")
+        self.user_info = database.handle_information_data(username=self.username)
         fullname = " ".join([self.user_info[2], self.user_info[4], self.user_info[3], self.user_info[5]])
         self.userprofilename.setText(fullname)
         cpy = " - ".join([self.user_info[11], self.user_info[13], self.user_info[12]])
