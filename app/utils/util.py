@@ -6,9 +6,45 @@ from PyQt5.QtGui import QFont, QFontDatabase, QColor, QRegion, QPixmap
 from PyQt5.QtWidgets import (QLabel, QGraphicsDropShadowEffect, QLineEdit, QPushButton, QComboBox, QGraphicsOpacityEffect)
 
 from PyQt5.QtWidgets import QLabel, QFileDialog
-from PyQt5.QtGui import QPixmap, QRegion
+from PyQt5.QtGui import QPixmap, QRegion, QImage, QPainter, QBrush
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtWidgets import QWidget  # Needed for QFileDialog context
+
+def get_rounded_stretched_pixmap(blob, width, height):
+    """
+    Convert an image blob to a rounded (circular) pixmap that stretches to fit the label.
+
+    Args:
+        blob (bytes): Image data.
+        width (int): Width of the target QLabel.
+        height (int): Height of the target QLabel.
+
+    Returns:
+        QPixmap: Rounded, stretched pixmap.
+    """
+    if not blob:
+        return None
+
+    # Convert blob to QPixmap
+    image = QImage.fromData(blob)
+    pixmap = QPixmap.fromImage(image)
+
+    # Stretch the pixmap to fit the label
+    pixmap = pixmap.scaled(width, height, Qt.IgnoreAspectRatio, Qt.SmoothTransformation)
+
+    # Make a rounded mask
+    size = min(width, height)
+    rounded = QPixmap(size, size)
+    rounded.fill(Qt.transparent)
+
+    painter = QPainter(rounded)
+    painter.setRenderHint(QPainter.Antialiasing)
+    painter.setBrush(QBrush(pixmap))
+    painter.setPen(Qt.NoPen)
+    painter.drawEllipse(0, 0, size, size)
+    painter.end()
+
+    return rounded
 
 class setup_profile(QLabel):
 

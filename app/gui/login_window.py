@@ -185,11 +185,13 @@ class LogandSign(MyWindow):
             QMessageBox.warning(self, "Error", f"Failed to log in, wrong username or password. Maybe account does not exist?", QMessageBox.Ok)
         else:
             QMessageBox.information(self, "Success", "Login successful!", QMessageBox.Ok)
-            self.app_manager.show_mainwindow()
+            self.app_manager.show_mainwindow(username)
+
 
         #-------------------------------------------- Open the signup dialog via the manager ----------
     def show_fillup(self):
         self.app_manager.show_fillup()
+
 
 # ---------------- Main ----------------
 if __name__ == "__main__":

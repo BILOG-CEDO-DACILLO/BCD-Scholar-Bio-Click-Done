@@ -7,7 +7,6 @@ import bcrypt
 class Database:
     def __init__(self):
         self. setup_paths()
-
         self.create_tables()
 
     def setup_paths(self):
@@ -78,4 +77,18 @@ class Database:
             print(f"Login error: {e}")
             return False
 
+    def handle_information_data(self, username):
+        try:
+            with self.connect() as conn:
+                user = conn.execute(
+                    "SELECT id, email FROM users WHERE username = ?", [username]).fetchone()
+                user_id = user[0]
+                information = []
+                user_infos = conn.execute("SELECT * FROM user_profile WHERE user_id = ?", [user_id]).fetchone()
+                for info in user_infos:
+                    information.append(info)
+                information.append(user[1])
+                return information
+        except Exception as e:
+            print(f"Information error: {e}")
 database = Database()
