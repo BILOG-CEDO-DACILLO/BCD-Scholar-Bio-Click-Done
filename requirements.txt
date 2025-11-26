@@ -1,2 +1,6 @@
 PyQt5
+PyQt5-tools
+QtPy
+pillow
+pytest
 bcrypt

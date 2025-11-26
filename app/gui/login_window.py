@@ -6,10 +6,9 @@ from PyQt5.QtGui import (QFont, QFontDatabase, QColor, QIcon)
 from PyQt5.QtWidgets import QGraphicsDropShadowEffect, QMessageBox
 import sqlite3
 from app.assets import res_rc
-from app.database.DBloginsignup import Database, database
+from app.database.database import Database, database
 from app.utils.util import (MyWindow, HoverShadow, load_font)
 
-# ---------------- Main Dialog ----------------
 class LogandSign(MyWindow):
     def __init__(self, app_manager=None):
         super().__init__()
@@ -20,7 +19,7 @@ class LogandSign(MyWindow):
         self.setup_shadows()
         self.setup_connections()
 
-        #-------------------------------------------- This setups the paths ----------------
+        ########################################## setups the paths ----------------
     def setup_paths_and_icons(self):
         current_file_path = Path(__file__).resolve()
         self.project_root = current_file_path.parent.parent
@@ -54,7 +53,7 @@ class LogandSign(MyWindow):
 
 ########################################## STYLE AREA ###############################################
 
-        #-------------------------------------------- This setups the stylized fonts ----------------
+    ########################################## setups the stylized fonts ----------------
     def setup_fonts(self):
 
         self.largelabel_font = load_font(self.isb_font_path, 32, bold=True)
@@ -65,7 +64,7 @@ class LogandSign(MyWindow):
             self.largelabel_font: [self.signuplbl, self.loginlbl],
             self.mediumlabel_font: [self.registerbtn, self.loginbtn, self.loginswitch],
             self.field_font: [self.usernamefield, self.username, self.emailfield,
-            self.passwordfield, self.passwordfield_2, self.password, self.forgotpass, self.switchlabel]
+            self.passwordfield, self.passwordfield_2, self.password, self.switchlabel]
         }
         for font, widgets in font_map.items():
             for widget in widgets:
@@ -78,12 +77,12 @@ class LogandSign(MyWindow):
         widgets_to_shadow = [
             self.registerbtn, self.loginbtn, self.loginswitch,
             self.usernamefield, self.emailfield, self.passwordfield,
-            self.username, self.password, self.forgotpass, self.passwordfield_2
+            self.username, self.password, self.passwordfield_2
         ]
         for widget in widgets_to_shadow:
             HoverShadow(widget)
 
-        #-------------------------------------------- This setups the button functions ----------------
+    ########################################## setups the button functions ----------------
     def setup_connections(self):
         self.loginswitch.clicked.connect(self.switchtologin)
         self.exitbtn.clicked.connect(self.close)
@@ -104,6 +103,7 @@ class LogandSign(MyWindow):
     def switchtologin(self):
         if self.loginswitch.text() == "Login":
             self.loginswitch.setText("Sign Up")
+            self.switchlabel.setText("Create new account.")
             self.anim = self.animate_widget(self.switchwidget, QPoint(-280, 0))
             self.anim2 = self.animate_widget(self.innerwidget, QPoint(280, 0))
             self.anim3 = self.animate_widget(self.exitbtn, QPoint(320, 30))
@@ -113,6 +113,7 @@ class LogandSign(MyWindow):
             self.passwordfield_2.setText("")
         else:
             self.loginswitch.setText("Login")
+            self.switchlabel.setText("Already have an account?")
             self.anim = self.animate_widget(self.switchwidget, QPoint(560, 0))
             self.anim2 = self.animate_widget(self.innerwidget, QPoint(70, 0))
             self.anim3 = self.animate_widget(self.exitbtn, QPoint(560, 30))
@@ -144,33 +145,40 @@ class LogandSign(MyWindow):
         if not username or not email or not password or not password2:
             QMessageBox.warning(self, "Warning", "Fill all fields below.", QMessageBox.Ok)
             return
-        elif password != password2:
+        if password != password2:
             QMessageBox.warning(self, "Warning", "Passwords don't match, Try again!", QMessageBox.Ok)
             return
 
-        elif not email.endswith("@bcd.scholarship.edu.ph"):
+        if not email.endswith("@bcd.scholarship.edu.ph"):
             QMessageBox.warning(self, "Warning", "Please use the given domain address.", QMessageBox.Ok)
             return
-
-        reply = QMessageBox.question(
-            self,
-            "Confirmation",
-            "Are you sure you want to sign up using this username, email, and password?",
-            QMessageBox.Yes | QMessageBox.No,
-            QMessageBox.No
-        )
-
-        if reply != QMessageBox.Yes:
+        if len(password) < 8 or (len(password2) < 8):
+            QMessageBox.warning(self, "Warning", "Passwords must be at least 8 characters.", QMessageBox.Ok)
             return
 
-        result = database.handle_signup_data(username, email, password, status)
+        result = database.acc_validation(username, email)
 
         if result is True:
+            reply = QMessageBox.question(
+                self,
+                "Confirmation",
+                "Are you sure you want to sign up using this username, email, and password?",
+                QMessageBox.Yes | QMessageBox.No,
+                QMessageBox.No
+            )
+
+            if reply != QMessageBox.Yes:
+                return
+
             QMessageBox.information(self, "Success", "Sign up successful!", QMessageBox.Ok)
-            self.app_manager.show_fillup()
+            self.app_manager.show_fillup(username, email, password, status)
+
+        elif result is False:
+            QMessageBox.critical(self, "Sign up failed", "An account already exists with this username or email.",
+                                 QMessageBox.Ok)
+
         else:
-            _, reason = result
-            QMessageBox.critical(self, "Sign up failed", reason, QMessageBox.Ok)
+            QMessageBox.critical(self, "Sign up failed", "A database error occurred during validation.", QMessageBox.Ok)
 
     def handle_login(self):
         username = self.username.text().strip()
@@ -179,14 +187,22 @@ class LogandSign(MyWindow):
         if not username or not password:
             QMessageBox.warning(self, "Warning", "Fill all fields below.", QMessageBox.Ok)
             return
+        user_result = database.handle_login(username, password)
 
-        user = database.handle_login_data(username, password)
-        if user == False:
-            QMessageBox.warning(self, "Error", f"Failed to log in, wrong username or password. Maybe account does not exist?", QMessageBox.Ok)
+        if user_result is False:
+            QMessageBox.warning(self, "Error",
+                                "Failed to log in, wrong username or password. Maybe account does not exist?",
+                                QMessageBox.Ok)
         else:
-            QMessageBox.information(self, "Success", "Login successful!", QMessageBox.Ok)
-            self.app_manager.show_mainwindow(username)
 
+            actual_username = user_result[1]
+
+            QMessageBox.information(self, "Success", "Login successful!", QMessageBox.Ok)
+            try:
+                self.app_manager.show_mainwindow(actual_username)
+                self.close()
+            except Exception as e:
+                print(f"Error launching main window: {e}")
 
         #-------------------------------------------- Open the signup dialog via the manager ----------
     def show_fillup(self):
@@ -196,6 +212,6 @@ class LogandSign(MyWindow):
 # ---------------- Main ----------------
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    dialog = LogandSign(app_manager)
+    dialog = LogandSign()
     dialog.show()
     sys.exit(app.exec_())

@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Login | Signup</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/images/Screenshot 2025-11-16 184411.png</normaloff>:/images/Screenshot 2025-11-16 184411.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">#mainDialog {
@@ -514,25 +518,6 @@ color: white;
          </property>
         </spacer>
        </item>
-       <item alignment="Qt::AlignHCenter">
-        <widget class="QPushButton" name="forgotpass">
-         <property name="minimumSize">
-          <size>
-           <width>400</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>400</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Forgot password?</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <spacer name="verticalSpacer_7">
          <property name="orientation">
@@ -869,12 +854,23 @@ border: none;
       <property name="text">
        <string/>
       </property>
+      <property name="icon">
+       <iconset resource="res.qrc">
+        <normaloff>:/images/hide.png</normaloff>
+        <normalon>:/images/view.png</normalon>:/images/hide.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
      </widget>
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
         <x>1050</x>
-        <y>235</y>
+        <y>290</y>
         <width>30</width>
         <height>30</height>
        </rect>
@@ -904,7 +900,7 @@ background-position: center</string>
       <property name="geometry">
        <rect>
         <x>1050</x>
-        <y>310</y>
+        <y>360</y>
         <width>30</width>
         <height>30</height>
        </rect>
@@ -916,13 +912,24 @@ border: none;
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="res.qrc">
+        <normaloff>:/images/hide.png</normaloff>
+        <normalon>:/images/view.png</normalon>:/images/hide.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
       </property>
      </widget>
      <widget class="QPushButton" name="viewpass3">
       <property name="geometry">
        <rect>
         <x>450</x>
-        <y>425</y>
+        <y>435</y>
         <width>30</width>
         <height>30</height>
        </rect>
@@ -934,6 +941,17 @@ border: none;
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="res.qrc">
+        <normaloff>:/images/hide.png</normaloff>
+        <normalon>:/images/view.png</normalon>:/images/hide.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
