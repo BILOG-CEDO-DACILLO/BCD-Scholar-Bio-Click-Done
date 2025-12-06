@@ -1,2 +1,2 @@
-# BCD SCHOLARSHIP (BUY-CLICK-DONE)
-This project is a computer-base application prototype that will make applying scholarship much easier and faster with some automation just, tap - click and you're done.
+# BCD SCHOLARSHIP (BIO-CLICK-DONE)
+Bio Click Done (BCD) is a PyQt-based desktop application designed to manage student and staff profiles efficiently. It allows users to view, update, and maintain profile information, including personal details, academic data, and profile photos. The system supports role-based access (Admin vs Student), dynamic UI updates, and integration with a SQLite database for secure storage.
