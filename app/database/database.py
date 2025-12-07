@@ -11,7 +11,7 @@ class Database:
         self.create_tables()
         self.data_table()
 
-    # --- Utility Methods (Unchanged) ---
+    ############################### Convert Pictures to Blob
     def _convert_to_blob(self, path: str) -> bytes:
         if not path or not Path(path).is_file():
             print(f"Warning: Photo path '{path}' is invalid or file does not exist.")
@@ -23,6 +23,7 @@ class Database:
             print(f"Error reading image file {path}: {e}")
             return b''
 
+    ############################### Setup Paths
     def setup_paths(self):
         current_file_path = Path(__file__).resolve()
         self.project_root = current_file_path.parents[2]
@@ -33,6 +34,121 @@ class Database:
     def connect(self):
         return sqlite3.connect(self.db_path)
 
+    ############################### Table for usersInfo
+    def create_tables(self):
+        try:
+            with self.connect() as conn:
+                conn.execute("""CREATE TABLE IF NOT EXISTS usersInfo (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                acctype TEXT,
+                username TEXT NOT NULL UNIQUE,
+                email TEXT NOT NULL UNIQUE,
+                password BLOB NOT NULL,
+                scholarship_stat TEXT NOT NULL,
+                profile_photo_data BLOB,
+                first_name TEXT NOT NULL,
+                last_name TEXT NOT NULL,
+                middle_initial TEXT,
+                suffix TEXT,
+                civil_status TEXT NOT NULL,
+                gender TEXT NOT NULL,
+                date_of_birth TEXT NOT NULL, 
+                age INTEGER NOT NULL,
+                student_id TEXT UNIQUE NOT NULL,
+                college TEXT NOT NULL,
+                year_level TEXT NOT NULL,
+                program TEXT NOT NULL,
+                municipality TEXT NOT NULL,
+                phone_number TEXT NOT NULL)
+            """)
+        except sqlite3.OperationalError as e:
+            print(f"Table creation error: {e}")
+
+    ################################ SECURE SIGNUP
+    def acc_validation(self, username, email):
+        try:
+            with self.connect() as conn:
+                validator = conn.execute(
+                    """SELECT id FROM usersInfo
+                    WHERE username = ? OR email = ?""", (username, email)
+                ).fetchone()
+
+                return validator is None
+        except Exception as e:
+            print(f"Validation error: {e}")
+            return False
+
+    ############################### Handle signups
+    def handle_signup(self, acctype, username, email, password, scholarship_stat,
+                      profile_photo, first_name, last_name, middle_initial, suffix,
+                      civil_status, gender, date_of_birth, age, student_id, college,
+                      year_level, program, municipality, phone_number):
+        hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        profile_photo_data = self._convert_to_blob(profile_photo)
+
+        try:
+            with self.connect() as conn:
+                conn.execute(
+                    """
+                    INSERT INTO usersInfo (
+                        acctype, username, email, password, scholarship_stat, 
+                        profile_photo_data, first_name, last_name, middle_initial, suffix, 
+                        civil_status, gender, date_of_birth, age, student_id, college, 
+                        year_level, program, municipality, phone_number
+                    ) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        acctype, username, email, hashed_pw, scholarship_stat,
+                        profile_photo_data,
+                        first_name, last_name, middle_initial, suffix,
+                        civil_status, gender, date_of_birth, age, student_id, college,
+                        year_level, program, municipality, phone_number
+                    )
+                )
+                conn.commit()
+            return True, "User record imported successfully."
+
+        except sqlite3.IntegrityError as e:
+            return False, f"Import failed: Integrity constraint violated. Check for duplicate username, email, or student ID. Error: {e}"
+
+        except Exception as e:
+            return False, f"Database error during import: {e}"
+
+    ############################### HANDLE LOGIN
+    def handle_login(self, usernameoremail, password):
+        try:
+            with self.connect() as conn:
+                user_record = conn.execute(
+                    "SELECT password, username FROM usersInfo WHERE username = ? OR email = ?",
+                    (usernameoremail, usernameoremail)
+                ).fetchone()
+
+                if not user_record:
+                    # Added print for debugging login issues
+                    print("LOGIN FAILED: Username/Email not found.")
+                    return False
+
+                stored_hash = user_record[0]
+
+                if not stored_hash:
+                    print("LOGIN FAILED: Stored password hash is empty.")
+                    return False
+
+                if bcrypt.checkpw(password.encode('utf-8'), stored_hash):
+                    # SUCCESS: Return True and the actual canonical username
+                    print(f"LOGIN SUCCESSFUL for user: {user_record[1]}")
+                    return True, user_record[1]
+                else:
+                    # Added print for debugging login issues
+                    print("LOGIN FAILED: Incorrect password.")
+                    return False
+
+        except Exception as e:
+            print(f"CRITICAL LOGIN ERROR: {e}")
+            return False
+
+    ############################### Create table for scholarships
     def data_table(self):
         try:
             with self.connect() as conn:
@@ -56,6 +172,7 @@ class Database:
         except Exception as e:
             print(f"Error: {e}")
 
+    ############################### Scholarship submit button validators
     def submitvalidator(self, username, scholarship_name):
         try:
             with self.connect() as conn:
@@ -96,118 +213,7 @@ class Database:
             print(f"Error submitting scholarship: {e}")
             return False
 
-    def create_tables(self):
-        try:
-            with self.connect() as conn:
-                conn.execute("""CREATE TABLE IF NOT EXISTS usersInfo (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                acctype TEXT,
-                username TEXT NOT NULL UNIQUE,
-                email TEXT NOT NULL UNIQUE,
-                password BLOB NOT NULL,
-                scholarship_stat TEXT NOT NULL,
-                profile_photo_data BLOB,
-                first_name TEXT NOT NULL,
-                last_name TEXT NOT NULL,
-                middle_initial TEXT,
-                suffix TEXT,
-                civil_status TEXT NOT NULL,
-                gender TEXT NOT NULL,
-                date_of_birth TEXT NOT NULL, 
-                age INTEGER NOT NULL,
-                student_id TEXT UNIQUE NOT NULL,
-                college TEXT NOT NULL,
-                year_level TEXT NOT NULL,
-                program TEXT NOT NULL,
-                municipality TEXT NOT NULL,
-                phone_number TEXT NOT NULL)
-            """)
-        except sqlite3.OperationalError as e:
-            print(f"Table creation error: {e}")
-
-    # -------------- SECURE SIGNUP (Unchanged) ----------------
-    def acc_validation(self, username, email):
-        try:
-            with self.connect() as conn:
-                validator = conn.execute(
-                    """SELECT id FROM usersInfo
-                    WHERE username = ? OR email = ?""", (username, email)
-                ).fetchone()
-
-                return validator is None
-        except Exception as e:
-            print(f"Validation error: {e}")
-            return False
-
-    def handle_signup(self, acctype, username, email, password, scholarship_stat,
-                      profile_photo, first_name, last_name, middle_initial, suffix,
-                      civil_status, gender, date_of_birth, age, student_id, college,
-                      year_level, program, municipality, phone_number):
-        hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-        profile_photo_data = self._convert_to_blob(profile_photo)
-
-        try:
-            with self.connect() as conn:
-                conn.execute(
-                    """
-                    INSERT INTO usersInfo (
-                        acctype, username, email, password, scholarship_stat, 
-                        profile_photo_data, first_name, last_name, middle_initial, suffix, 
-                        civil_status, gender, date_of_birth, age, student_id, college, 
-                        year_level, program, municipality, phone_number
-                    ) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    """,
-                    (
-                        acctype, username, email, hashed_pw, scholarship_stat,
-                        profile_photo_data,
-                        first_name, last_name, middle_initial, suffix,
-                        civil_status, gender, date_of_birth, age, student_id, college,
-                        year_level, program, municipality, phone_number
-                    )
-                )
-                conn.commit()
-            return True, "User record imported successfully."
-
-        except sqlite3.IntegrityError as e:
-            return False, f"Import failed: Integrity constraint violated. Check for duplicate username, email, or student ID. Error: {e}"
-
-        except Exception as e:
-            return False, f"Database error during import: {e}"
-
-    # ---------------------- HANDLE LOGIN (Used by login_window.py) -----------
-    def handle_login(self, usernameoremail, password):
-        try:
-            with self.connect() as conn:
-                user_record = conn.execute(
-                    "SELECT password, username FROM usersInfo WHERE username = ? OR email = ?",
-                    (usernameoremail, usernameoremail)
-                ).fetchone()
-
-                if not user_record:
-                    # Added print for debugging login issues
-                    print("LOGIN FAILED: Username/Email not found.")
-                    return False
-
-                stored_hash = user_record[0]
-
-                if not stored_hash:
-                    print("LOGIN FAILED: Stored password hash is empty.")
-                    return False
-
-                if bcrypt.checkpw(password.encode('utf-8'), stored_hash):
-                    # SUCCESS: Return True and the actual canonical username
-                    print(f"LOGIN SUCCESSFUL for user: {user_record[1]}")
-                    return True, user_record[1]
-                else:
-                    # Added print for debugging login issues
-                    print("LOGIN FAILED: Incorrect password.")
-                    return False
-
-        except Exception as e:
-            print(f"CRITICAL LOGIN ERROR: {e}")
-            return False
-
+    ############################### Handle users informations
     def handle_information_data(self, usernameoremail):
         try:
             with self.connect() as conn:
@@ -234,6 +240,7 @@ class Database:
             print(f"Information error: {e}")
             return None
 
+    ############################### users status getter for student
     def get_user_scholar_status(self, username):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -248,6 +255,7 @@ class Database:
         conn.close()
         return result
 
+    ############################### status getter for admins
     def get_user_info_for_admin(self):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -262,6 +270,7 @@ class Database:
         conn.close()
         return result
 
+    ############################### admin validator
     def is_Admin(self, username):
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -270,6 +279,7 @@ class Database:
         if AT == "ADMIN":return True
         else:return False
 
+    ############################### Update user status
     def update_scholarship_status(self, scholar_id, new_status):
         try:
             with self.connect() as conn:
@@ -303,6 +313,7 @@ class Database:
             print(f"Error updating scholarship status: {e}")
             return False
 
+    ############################### General Data getter
     def get_all_scholars(self):
         self.refresh_scholar_data()
         try:
@@ -359,6 +370,7 @@ class Database:
             print(f"Error getting scholar counts: {e}")
             return {"SCHOLAR": 0, "NON-SCHOLAR": 0}, [], {}
 
+    ############################### refresh info
     def refresh_scholar_data(self):
         try:
             with self.connect() as conn:
@@ -425,6 +437,7 @@ class Database:
             print(f"Error refreshing scholar data: {e}")
             return {"SCHOLAR": 0, "NON-SCHOLAR": 0}, {}
 
+    ############################### Scholarship info getter
     def get_scholarship_program_stats(self):
         self.refresh_scholar_data()
         try:
@@ -540,13 +553,10 @@ class Database:
             # Return the zero-initialized dictionary on error
             return program_counts
 
-    # Place this method inside the Database class in app/database/database.py
-
+    ############################### Update user information
     def update_user_info(self, username, acctype, profile_photo_path, first_name, last_name, middle_initial, suffix,
                          civil_status, gender, date_of_birth, age, student_id, college, year_level, program,
                          municipality, phone_number):
-        """Updates all user details in the usersInfo table based on the username."""
-
         profile_photo_data = None
         if profile_photo_path and Path(profile_photo_path).is_file():
             try:
@@ -587,7 +597,6 @@ class Database:
             conn = self.connect()
             cursor = conn.cursor()
 
-            # ASSUMING your primary user table is named 'users' and has a 'password' column
             cursor.execute("""
                 UPDATE users SET 
                 password = ?
